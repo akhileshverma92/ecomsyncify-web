@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ChevronRight, ShoppingCart, Cog, Check, ArrowRight, Search } from 'lucide-react';
+import {  ShoppingCart, Cog, Check, ArrowRight, Search } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
@@ -516,4 +516,5 @@ export default function Home() {
       `}</style>
     </div>
   );
+
 }
