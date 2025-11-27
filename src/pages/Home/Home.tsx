@@ -453,7 +453,7 @@ export default function Home() {
                 className="mb-8 leading-relaxed"
                 style={{ color: themeColors.gray }}
               >
-                Our experts are ready to help you navigate any technical challenges, solve integration issues, and keep your business running smoothly. Whether you're just starting or scaling up, we're here for you as a trusted ally.
+                my experts are ready to help you navigate any technical challenges, solve integration issues, and keep your business running smoothly. Whether you're just starting or scaling up, we're here for you as a trusted ally.
               </p>
              
             </div>
