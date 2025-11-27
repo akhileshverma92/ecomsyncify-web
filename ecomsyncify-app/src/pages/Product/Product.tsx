@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { Package, BarChart3, ShoppingCart, TrendingUp, Check } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 export default function Product() {
   const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
@@ -274,3 +273,4 @@ export default function Product() {
     </div>
   );
 }
+
