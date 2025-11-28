@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ShoppingCart, RefreshCw, Package, Shield, Clock, TrendingUp, Check, ArrowRight, Sparkles } from 'lucide-react';
+import { ShoppingCart, RefreshCw, Package, Shield, Clock, TrendingUp,  ArrowRight, Sparkles } from 'lucide-react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 
 export default function EtsyIntegration() {
@@ -262,4 +262,5 @@ export default function EtsyIntegration() {
     </div>
   );
 }
+
 
