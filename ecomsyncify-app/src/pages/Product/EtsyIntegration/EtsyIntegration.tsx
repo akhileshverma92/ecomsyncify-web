@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ShoppingCart, RefreshCw, Package, Shield, Clock, TrendingUp,  ArrowRight, Sparkles } from 'lucide-react';
+import { ShoppingCart, RefreshCw, Package, Shield, Clock, TrendingUp, Check, ArrowRight, Sparkles } from 'lucide-react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 
 export default function EtsyIntegration() {
@@ -97,10 +97,10 @@ export default function EtsyIntegration() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-sm sm:text-base md:text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 inline-flex items-center gap-2 touch-manipulation"
-                style={{ minHeight: '44px' }}
                 style={{ 
                   background: themeColors.white,
                   color: themeColors.teal,
+                  minHeight: '44px',
                 }}
               >
                 Start Free Trial <ArrowRight size={20} />
@@ -263,5 +263,4 @@ export default function EtsyIntegration() {
     </div>
   );
 }
-
 
