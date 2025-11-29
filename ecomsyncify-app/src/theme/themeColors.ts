@@ -1,3 +1,4 @@
+// Centralized theme colors - Update this file to change theme across all pages
 export const themeColors = {
   // Primary
   primaryBlue: "#233876",
@@ -36,4 +37,41 @@ export const themeColors = {
   // Borders
   borderLight: "#E5E7EB",
   borderBlue: "#23387633",
+
+  // Legacy keys for backward compatibility
+  // Primary blues
+  blue: "#233876",
+  darkBlue: "#233876",
+  blueMedium: "#425AA9",
+  blueLight: "#0A47B9",
+  blueLighter: "#425AA9",
+  blueLightest: "#F0F4FF",
+  
+  // Accent colors
+  navy: "#233876",
+  skyBlue: "#0A47B9",
+  cyan: "#425AA9",
+  teal: "#3BB44A",
+  
+  // Green variants (mapped to new greens)
+  lightGreen: "#3BB44A",
+  limeGreen: "#3BB44A",
+  lightBlue: "#F0F4FF",
+  blueTeal: "#3BB44A",
+  greenBlue: "#233876",
+  tealGreen: "#3BB44A",
+  darkGreen: "#2C8A38",
+  
+  // Complementary colors
+  cream: "#F0F4FF",
+  accent: "#425AA9",
+  
+  // Neutrals (mapped)
+  black: "#1F2937",
 };
+
+
+
+
+
+
