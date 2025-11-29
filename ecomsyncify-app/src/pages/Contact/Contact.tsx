@@ -1,0 +1,432 @@
+import { useState, useEffect, useRef } from 'react';
+import { Mail, HeadphonesIcon, MapPin } from 'lucide-react';
+
+export default function Contact() {
+  const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
+  const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+  const [activeContactTab, setActiveContactTab] = useState<'address' | 'map'>('address');
+
+  // Green gradient theme (matching logo)
+  const themeColors = {
+    // Primary greens
+    darkGreen: '#000000',
+    green: '#22c55e', // primary brand green (emerald)
+    lightGreen: '#84cc16', // lighter accent green (lime)
+    // Legacy keys mapped to greens (for gradients)
+    limeGreen: '#84cc16',
+    teal: '#14b8a6', // teal green
+    blue: '#22c55e', // mapped to primary green
+    lightBlue: '#84cc16', // mapped to lime green
+    // Blended colors
+    blueTeal: '#84cc16',
+    greenBlue: '#22c55e',
+    tealGreen: '#14b8a6',
+    // Neutrals
+    black: '#000000',
+    white: '#ffffff',
+    gray: '#6b7280',
+    grayLight: '#EFECE3',
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible((prev) => ({
+              ...prev,
+              [entry.target.id]: true,
+            }));
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    Object.values(sectionRefs.current).forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      Object.values(sectionRefs.current).forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, []);
+
+  return (
+    <div className="min-h-screen" style={{ backgroundColor: themeColors.white }}>
+      {/* Hero Section */}
+      <section
+        className="pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-14 md:pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed',
+        }}
+      >
+        {/* Gradient Overlay */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background: `linear-gradient(135deg, ${themeColors.blue}CC 0%, ${themeColors.limeGreen}CC 50%, ${themeColors.teal}CC 100%)`,
+          }}
+        ></div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div
+            className={`text-center max-w-4xl mx-auto transition-all duration-1000 ${isVisible['hero'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+            ref={(el) => {
+              if (el) {
+                el.id = 'hero';
+                sectionRefs.current['hero'] = el;
+              }
+            }}
+          >
+            <h1
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight px-4"
+              style={{ color: themeColors.white }}
+            >
+              Contact Us
+            </h1>
+            <p
+              className="text-base sm:text-lg md:text-xl mb-3 sm:mb-4 leading-relaxed px-4"
+              style={{ color: themeColors.white, opacity: 0.95 }}
+            >
+              We're here to help you every step of the way.
+            </p>
+            <p
+              className="text-sm sm:text-base md:text-lg leading-relaxed px-4"
+              style={{ color: themeColors.white, opacity: 0.95 }}
+            >
+              Whether you have questions about our Etsy Integration App, need technical support, or want to explore partnership opportunities - the EcomSyncify Technologies team is ready to assist you.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Contact Card Section - Form + Address (like reference UI) */}
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: themeColors.white }}>
+        <div className="max-w-6xl mx-auto">
+          <div
+            className={`rounded-3xl border border-gray-100 shadow-2xl bg-white px-4 sm:px-6 md:px-10 py-8 sm:py-10 md:py-12 transition-all duration-1000 ${isVisible['contact-main'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+            ref={(el) => {
+              if (el) {
+                el.id = 'contact-main';
+                sectionRefs.current['contact-main'] = el;
+              }
+            }}
+            style={{
+              borderColor: themeColors.grayLight,
+            }}
+          >
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
+              {/* Left Column - Form (Need Help?) */}
+              <div>
+                <h2
+                  className="text-2xl sm:text-3xl font-bold mb-2"
+                  style={{ color: themeColors.black }}
+                >
+                  Need Help?
+                </h2>
+                <p
+                  className="text-sm sm:text-base mb-6"
+                  style={{ color: themeColors.gray }}
+                >
+                  Reach out to our team for questions about EcomSyncify, integration setup, support, or partnership opportunities.
+                </p>
+
+                <form className="space-y-4 sm:space-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                    <input
+                      type="text"
+                      placeholder="Name"
+                      required
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border-2 focus:outline-none transition-all text-sm sm:text-base"
+                      style={{
+                        borderColor: 'transparent',
+                        backgroundColor: themeColors.grayLight,
+                        color: themeColors.black,
+                        minHeight: '44px',
+                      }}
+                      onFocus={(e) => {
+                        e.currentTarget.style.borderColor = themeColors.limeGreen;
+                        e.currentTarget.style.backgroundColor = themeColors.white;
+                      }}
+                      onBlur={(e) => {
+                        e.currentTarget.style.borderColor = 'transparent';
+                        e.currentTarget.style.backgroundColor = themeColors.grayLight;
+                      }}
+                    />
+                    <input
+                      type="email"
+                      placeholder="Email*"
+                      required
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border-2 focus:outline-none transition-all text-sm sm:text-base"
+                      style={{
+                        borderColor: 'transparent',
+                        backgroundColor: themeColors.grayLight,
+                        color: themeColors.black,
+                        minHeight: '44px',
+                      }}
+                      onFocus={(e) => {
+                        e.currentTarget.style.borderColor = themeColors.limeGreen;
+                        e.currentTarget.style.backgroundColor = themeColors.white;
+                      }}
+                      onBlur={(e) => {
+                        e.currentTarget.style.borderColor = 'transparent';
+                        e.currentTarget.style.backgroundColor = themeColors.grayLight;
+                      }}
+                    />
+                  </div>
+                  <input
+                    type="tel"
+                    placeholder="Phone"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border-2 focus:outline-none transition-all text-sm sm:text-base"
+                    style={{
+                      borderColor: 'transparent',
+                      backgroundColor: themeColors.grayLight,
+                      color: themeColors.black,
+                      minHeight: '44px',
+                    }}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = themeColors.limeGreen;
+                      e.currentTarget.style.backgroundColor = themeColors.white;
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = 'transparent';
+                      e.currentTarget.style.backgroundColor = themeColors.grayLight;
+                    }}
+                  />
+                  <textarea
+                    placeholder="Please describe what you need.*"
+                    rows={5}
+                    required
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border-2 focus:outline-none transition-all resize-none text-sm sm:text-base"
+                    style={{
+                      borderColor: 'transparent',
+                      backgroundColor: themeColors.grayLight,
+                      color: themeColors.black,
+                      minHeight: '120px',
+                    }}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = themeColors.limeGreen;
+                      e.currentTarget.style.backgroundColor = themeColors.white;
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = 'transparent';
+                      e.currentTarget.style.backgroundColor = themeColors.grayLight;
+                    }}
+                  />
+                  <button
+                    type="submit"
+                    className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 touch-manipulation"
+                    style={{
+                      background: `linear-gradient(90deg, ${themeColors.limeGreen} 0%, ${themeColors.teal} 100%)`,
+                      color: themeColors.white,
+                      minHeight: '44px',
+                    }}
+                  >
+                    Get a free consultation
+                  </button>
+                </form>
+              </div>
+
+              {/* Right Column - Address / Contact Info with Address / Google Maps toggle */}
+              <div className="border-t md:border-t-0 md:border-l pt-6 md:pt-0 md:pl-8 lg:pl-10" style={{ borderColor: themeColors.grayLight }}>
+                {/* Tabs header (Address / Google Maps toggle) */}
+                <div className="flex items-center gap-6 mb-6">
+                  <button
+                    type="button"
+                    onClick={() => setActiveContactTab('address')}
+                    className="text-base sm:text-lg font-semibold pb-1 border-b-2 transition-colors"
+                    style={{
+                      color: activeContactTab === 'address' ? themeColors.black : themeColors.gray,
+                      borderBottomColor: activeContactTab === 'address' ? themeColors.teal : 'transparent',
+                    }}
+                  >
+                    Address
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveContactTab('map')}
+                    className="text-base sm:text-lg font-semibold pb-1 border-b-2 transition-colors"
+                    style={{
+                      color: activeContactTab === 'map' ? themeColors.black : themeColors.gray,
+                      borderBottomColor: activeContactTab === 'map' ? themeColors.teal : 'transparent',
+                    }}
+                  >
+                    Google Maps
+                  </button>
+                </div>
+
+                {activeContactTab === 'address' ? (
+                  <div className="space-y-5 sm:space-y-6">
+                    {/* Location */}
+                    <div className="flex items-start gap-4">
+                      <div
+                        className="w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-md"
+                        style={{
+                          backgroundColor: themeColors.white,
+                          boxShadow: '0 10px 25px rgba(0,0,0,0.08)',
+                        }}
+                      >
+                        <MapPin size={22} style={{ color: themeColors.teal }} />
+                      </div>
+                      <div>
+                        <p
+                          className="text-xs uppercase tracking-wider font-semibold mb-1"
+                          style={{ color: themeColors.gray }}
+                        >
+                          Our Location
+                        </p>
+                        <p
+                          className="text-sm sm:text-base font-semibold"
+                          style={{ color: themeColors.black }}
+                        >
+                          EcomSyncify Technologies
+                        </p>
+                        <p
+                          className="text-sm leading-relaxed"
+                          style={{ color: themeColors.gray }}
+                        >
+                          P-53 / VK Residency Haldharu,<br />
+                          Surat, Gujarat, India - 394305
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Email */}
+                    <div className="flex items-start gap-4">
+                      <div
+                        className="w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-md"
+                        style={{
+                          backgroundColor: themeColors.white,
+                          boxShadow: '0 10px 25px rgba(0,0,0,0.08)',
+                        }}
+                      >
+                        <Mail size={22} style={{ color: themeColors.teal }} />
+                      </div>
+                      <div>
+                        <p
+                          className="text-xs uppercase tracking-wider font-semibold mb-1"
+                          style={{ color: themeColors.gray }}
+                        >
+                          Send Us Mail
+                        </p>
+                        <a
+                          href="mailto:support@ecomsyncify.com"
+                          className="text-sm sm:text-base font-semibold hover:underline break-all"
+                          style={{ color: themeColors.black }}
+                        >
+                          support@ecomsyncify.com
+                        </a>
+                      </div>
+                    </div>
+
+                    {/* Call */}
+                    <div className="flex items-start gap-4">
+                      <div
+                        className="w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-md"
+                        style={{
+                          backgroundColor: themeColors.white,
+                          boxShadow: '0 10px 25px rgba(0,0,0,0.08)',
+                        }}
+                      >
+                        <HeadphonesIcon size={22} style={{ color: themeColors.teal }} />
+                      </div>
+                      <div>
+                        <p
+                          className="text-xs uppercase tracking-wider font-semibold mb-1"
+                          style={{ color: themeColors.gray }}
+                        >
+                          Call Us
+                        </p>
+                        <p
+                          className="text-sm sm:text-base font-semibold"
+                          style={{ color: themeColors.black }}
+                        >
+                          +91 98243 02520
+                        </p>
+                        <p
+                          className="text-xs sm:text-sm"
+                          style={{ color: themeColors.gray }}
+                        >
+                          Monday - Saturday, 10:00 AM - 07:00 PM (IST)
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    <div
+                      className="rounded-2xl overflow-hidden shadow-lg h-64 sm:h-72 md:h-80"
+                      style={{
+                        boxShadow: '0 20px 60px rgba(0,0,0,0.15)',
+                      }}
+                    >
+                      <iframe
+                        src="https://www.google.com/maps?q=26.9767297,80.9175052&hl=es;z=16&output=embed"
+                        width="600"
+                        height="450"
+                        style={{border:0}}
+                        allowFullScreen={true}
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade">
+                      </iframe>
+
+                    </div>
+                    <p
+                      className="text-xs sm:text-sm"
+                      style={{ color: themeColors.gray }}
+                    >
+                      Can't see the map?{" "}
+                      <a
+                        href="https://maps.app.goo.gl/KHiq2stw7kF2STpV9"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold hover:underline"
+                        style={{ color: themeColors.teal }}
+                      >
+                        Open in Google Maps
+                      </a>
+                      .
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <style>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+          color: #6b7280;
+          opacity: 0.7;
+        }
+
+        input:focus::placeholder,
+        textarea:focus::placeholder {
+          opacity: 0.5;
+        }
+      `}</style>
+    </div>
+  );
+}
