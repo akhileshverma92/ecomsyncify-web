@@ -44,7 +44,7 @@ export default function Home() {
         id="home" 
         className="min-h-screen flex items-center px-4 sm:px-6 lg:px-8 relative overflow-hidden hero-glow"
         style={{ 
-          background: `linear-gradient(135deg, ${themeColors.blue} 0%, ${themeColors.limeGreen} 50%, ${themeColors.teal} 100%)`,
+          background: `linear-gradient(135deg, ${themeColors.lightSkyBlue || '#87CEEB'} 0%, ${themeColors.skyBlueLight || '#B0E0E6'} 50%, ${themeColors.skyBlueLighter || '#E0F6FF'} 100%)`,
         }}
       >
         <div className="max-w-7xl mx-auto w-full py-8 sm:py-12 lg:py-16">
@@ -63,13 +63,13 @@ export default function Home() {
             <div className="space-y-3 sm:space-y-4 md:space-y-5 w-full max-w-4xl mb-6 sm:mb-8 md:mb-10">
               <h3
                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight"
-                style={{ color: themeColors.white }}
+                style={{ color: themeColors.textDark }}
               >
                 The Simplest Way to Automate Marketplace Integrations Across E-commerce Platforms
               </h3>
               <p 
                 className="text-sm sm:text-base md:text-lg leading-relaxed px-4"
-                style={{ color: themeColors.white, opacity: 0.95 }}
+                style={{ color: themeColors.textDark, opacity: 0.9 }}
               >
                 EcomSyncify Technologies is a leading Shopify integration and automation company helping U.S. businesses grow across global marketplaces with seamless Shopify–Etsy integration, smart data sync, and multi-channel selling solutions.
               </p>
@@ -97,8 +97,8 @@ export default function Home() {
                 className="px-6 py-3 sm:px-8 sm:py-3.5 rounded-lg text-sm sm:text-base cursor-pointer font-semibold transition-all duration-300 border-2 active:scale-95"
                 style={{
                   backgroundColor: 'transparent',
-                  color: themeColors.white,
-                  borderColor: themeColors.white,
+                  color: themeColors.textDark,
+                  borderColor: themeColors.lightSkyBlue || '#87CEEB',
                   minHeight: '44px',
                 }}
               >
@@ -280,7 +280,7 @@ export default function Home() {
               radial-gradient(circle 500px at 20% 80%, ${themeColors.teal}30, transparent),
               radial-gradient(circle 500px at 80% 20%, ${themeColors.blue}30, transparent),
               radial-gradient(circle 500px at 50% 50%, ${themeColors.limeGreen}20, transparent),
-              radial-gradient(circle 2px at 2px 2px, ${themeColors.lightBlue}40 1px, transparent 0),
+              radial-gradient(circle 2px at 2px 2px, ${themeColors.skyBlueLight || '#B0E0E6'}40 1px, transparent 0),
               radial-gradient(circle 2px at 2px 2px, ${themeColors.teal}30 1px, transparent 0),
               radial-gradient(circle 2px at 2px 2px, ${themeColors.limeGreen}25 1px, transparent 0)
             `,
@@ -632,7 +632,7 @@ export default function Home() {
           left: 0;
           width: 100%;
           height: 300px;
-            background: linear-gradient(to top, rgba(34, 197, 94, 0.3) 0%, rgba(132, 204, 22, 0.35) 40%, rgba(20, 184, 166, 0.3) 70%, transparent 100%);
+            background: linear-gradient(to top, rgba(135, 206, 235, 0.3) 0%, rgba(176, 224, 230, 0.35) 40%, rgba(224, 246, 255, 0.3) 70%, transparent 100%);
           animation: glowRise 5s ease-in-out infinite;
           z-index: 0;
           pointer-events: none;
@@ -740,7 +740,7 @@ export default function Home() {
         }
 
           .service-card:hover h3 {
-            background: linear-gradient(135deg, ${themeColors.blue} 0%, ${themeColors.lightBlue} 50%, ${themeColors.teal} 100%);
+            background: linear-gradient(135deg, ${themeColors.lightSkyBlue || '#87CEEB'} 0%, ${themeColors.skyBlueLight || '#B0E0E6'} 50%, ${themeColors.skyBlueLighter || '#E0F6FF'} 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
