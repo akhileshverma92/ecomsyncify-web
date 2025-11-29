@@ -112,7 +112,7 @@ export default function Contact() {
       <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: themeColors.white }}>
         <div className="max-w-6xl mx-auto">
           <div
-            className={`rounded-3xl border border-gray-100 shadow-2xl bg-white px-4 sm:px-6 md:px-10 py-8 sm:py-10 md:py-12 transition-all duration-1000 ${isVisible['contact-main'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            className={`rounded-2xl sm:rounded-3xl border border-gray-100 shadow-2xl bg-white px-4 sm:px-5 md:px-8 lg:px-10 py-6 sm:py-8 md:py-10 lg:py-12 transition-all duration-1000 ${isVisible['contact-main'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
             ref={(el) => {
               if (el) {
@@ -124,24 +124,24 @@ export default function Contact() {
               borderColor: themeColors.grayLight,
             }}
           >
-            <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start">
               {/* Left Column - Form (Need Help?) */}
-              <div>
+              <div className="w-full">
                 <h2
-                  className="text-2xl sm:text-3xl font-bold mb-2"
+                  className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3"
                   style={{ color: themeColors.black }}
                 >
                   Need Help?
                 </h2>
                 <p
-                  className="text-sm sm:text-base mb-6"
+                  className="text-xs sm:text-sm md:text-base mb-4 sm:mb-6 leading-relaxed"
                   style={{ color: themeColors.gray }}
                 >
                   Reach out to our team for questions about EcomSyncify, integration setup, support, or partnership opportunities.
                 </p>
 
-                <form className="space-y-4 sm:space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                <form className="space-y-3 sm:space-y-4 md:space-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
                     <input
                       type="text"
                       placeholder="Name"
@@ -224,7 +224,7 @@ export default function Contact() {
                   />
                   <button
                     type="submit"
-                    className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 touch-manipulation"
+                    className="inline-flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 touch-manipulation"
                     style={{
                       background: `linear-gradient(90deg, ${themeColors.limeGreen} 0%, ${themeColors.teal} 100%)`,
                       color: themeColors.white,
@@ -237,16 +237,17 @@ export default function Contact() {
               </div>
 
               {/* Right Column - Address / Contact Info with Address / Google Maps toggle */}
-              <div className="border-t md:border-t-0 md:border-l pt-6 md:pt-0 md:pl-8 lg:pl-10" style={{ borderColor: themeColors.grayLight }}>
+              <div className="border-t md:border-t-0 md:border-l pt-6 sm:pt-8 md:pt-0 md:pl-6 lg:pl-8 xl:pl-10 mt-6 md:mt-0" style={{ borderColor: themeColors.grayLight }}>
                 {/* Tabs header (Address / Google Maps toggle) */}
-                <div className="flex items-center gap-6 mb-6">
+                <div className="flex items-center gap-4 sm:gap-6 mb-4 sm:mb-6 overflow-x-auto">
                   <button
                     type="button"
                     onClick={() => setActiveContactTab('address')}
-                    className="text-base sm:text-lg font-semibold pb-1 border-b-2 transition-colors"
+                    className="text-sm sm:text-base md:text-lg font-semibold pb-2 border-b-2 transition-colors whitespace-nowrap flex-shrink-0"
                     style={{
                       color: activeContactTab === 'address' ? themeColors.black : themeColors.gray,
                       borderBottomColor: activeContactTab === 'address' ? themeColors.teal : 'transparent',
+                      borderBottomWidth: '2px',
                     }}
                   >
                     Address
@@ -254,10 +255,11 @@ export default function Contact() {
                   <button
                     type="button"
                     onClick={() => setActiveContactTab('map')}
-                    className="text-base sm:text-lg font-semibold pb-1 border-b-2 transition-colors"
+                    className="text-sm sm:text-base md:text-lg font-semibold pb-2 border-b-2 transition-colors whitespace-nowrap flex-shrink-0"
                     style={{
                       color: activeContactTab === 'map' ? themeColors.black : themeColors.gray,
                       borderBottomColor: activeContactTab === 'map' ? themeColors.teal : 'transparent',
+                      borderBottomWidth: '2px',
                     }}
                   >
                     Google Maps
@@ -265,33 +267,33 @@ export default function Contact() {
                 </div>
 
                 {activeContactTab === 'address' ? (
-                  <div className="space-y-5 sm:space-y-6">
+                  <div className="space-y-4 sm:space-y-5 md:space-y-6">
                     {/* Location */}
-                    <div className="flex items-start gap-4">
+                    <div className="flex items-start gap-3 sm:gap-4">
                       <div
-                        className="w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-md"
+                        className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-md flex-shrink-0"
                         style={{
                           backgroundColor: themeColors.white,
                           boxShadow: '0 10px 25px rgba(0,0,0,0.08)',
                         }}
                       >
-                        <MapPin size={22} style={{ color: themeColors.teal }} />
+                        <MapPin size={20} className="sm:w-5 sm:h-5 md:w-6 md:h-6" style={{ color: themeColors.teal }} />
                       </div>
-                      <div>
+                      <div className="flex-1 min-w-0">
                         <p
-                          className="text-xs uppercase tracking-wider font-semibold mb-1"
+                          className="text-[10px] sm:text-xs uppercase tracking-wider font-semibold mb-1 sm:mb-1.5"
                           style={{ color: themeColors.gray }}
                         >
                           Our Location
                         </p>
                         <p
-                          className="text-sm sm:text-base font-semibold"
+                          className="text-sm sm:text-base md:text-lg font-semibold mb-1"
                           style={{ color: themeColors.black }}
                         >
                           EcomSyncify Technologies
                         </p>
                         <p
-                          className="text-sm leading-relaxed"
+                          className="text-xs sm:text-sm md:text-base leading-relaxed break-words"
                           style={{ color: themeColors.gray }}
                         >
                           P-53 / VK Residency Haldharu,<br />
@@ -301,26 +303,26 @@ export default function Contact() {
                     </div>
 
                     {/* Email */}
-                    <div className="flex items-start gap-4">
+                    <div className="flex items-start gap-3 sm:gap-4">
                       <div
-                        className="w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-md"
+                        className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-md flex-shrink-0"
                         style={{
                           backgroundColor: themeColors.white,
                           boxShadow: '0 10px 25px rgba(0,0,0,0.08)',
                         }}
                       >
-                        <Mail size={22} style={{ color: themeColors.teal }} />
+                        <Mail size={20} className="sm:w-5 sm:h-5 md:w-6 md:h-6" style={{ color: themeColors.teal }} />
                       </div>
-                      <div>
+                      <div className="flex-1 min-w-0">
                         <p
-                          className="text-xs uppercase tracking-wider font-semibold mb-1"
+                          className="text-[10px] sm:text-xs uppercase tracking-wider font-semibold mb-1 sm:mb-1.5"
                           style={{ color: themeColors.gray }}
                         >
                           Send Us Mail
                         </p>
                         <a
                           href="mailto:support@ecomsyncify.com"
-                          className="text-sm sm:text-base font-semibold hover:underline break-all"
+                          className="text-xs sm:text-sm md:text-base font-semibold hover:underline break-all block"
                           style={{ color: themeColors.black }}
                         >
                           support@ecomsyncify.com
@@ -329,31 +331,31 @@ export default function Contact() {
                     </div>
 
                     {/* Call */}
-                    <div className="flex items-start gap-4">
+                    <div className="flex items-start gap-3 sm:gap-4">
                       <div
-                        className="w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-md"
+                        className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-md flex-shrink-0"
                         style={{
                           backgroundColor: themeColors.white,
                           boxShadow: '0 10px 25px rgba(0,0,0,0.08)',
                         }}
                       >
-                        <HeadphonesIcon size={22} style={{ color: themeColors.teal }} />
+                        <HeadphonesIcon size={20} className="sm:w-5 sm:h-5 md:w-6 md:h-6" style={{ color: themeColors.teal }} />
                       </div>
-                      <div>
+                      <div className="flex-1 min-w-0">
                         <p
-                          className="text-xs uppercase tracking-wider font-semibold mb-1"
+                          className="text-[10px] sm:text-xs uppercase tracking-wider font-semibold mb-1 sm:mb-1.5"
                           style={{ color: themeColors.gray }}
                         >
                           Call Us
                         </p>
                         <p
-                          className="text-sm sm:text-base font-semibold"
+                          className="text-sm sm:text-base md:text-lg font-semibold mb-1"
                           style={{ color: themeColors.black }}
                         >
                           +91 98243 02520
                         </p>
                         <p
-                          className="text-xs sm:text-sm"
+                          className="text-xs sm:text-sm md:text-base leading-relaxed"
                           style={{ color: themeColors.gray }}
                         >
                           Monday - Saturday, 10:00 AM - 07:00 PM (IST)
@@ -362,26 +364,29 @@ export default function Contact() {
                     </div>
                   </div>
                 ) : (
-                  <div className="space-y-4">
+                  <div className="space-y-3 sm:space-y-4">
                     <div
-                      className="rounded-2xl overflow-hidden shadow-lg h-64 sm:h-72 md:h-80"
+                      className="rounded-xl sm:rounded-2xl overflow-hidden shadow-lg w-full"
                       style={{
                         boxShadow: '0 20px 60px rgba(0,0,0,0.15)',
+                        height: '250px',
+                        minHeight: '250px',
                       }}
                     >
                       <iframe
                         src="https://www.google.com/maps?q=26.9767297,80.9175052&hl=es;z=16&output=embed"
-                        width="600"
-                        height="450"
-                        style={{border:0}}
+                        width="100%"
+                        height="100%"
+                        style={{border:0, display: 'block'}}
                         allowFullScreen={true}
                         loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade">
+                        referrerPolicy="no-referrer-when-downgrade"
+                        className="w-full h-full"
+                      >
                       </iframe>
-
                     </div>
                     <p
-                      className="text-xs sm:text-sm"
+                      className="text-xs sm:text-sm leading-relaxed"
                       style={{ color: themeColors.gray }}
                     >
                       Can't see the map?{" "}
@@ -389,7 +394,7 @@ export default function Contact() {
                         href="https://maps.app.goo.gl/KHiq2stw7kF2STpV9"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-semibold hover:underline"
+                        className="font-semibold hover:underline break-all"
                         style={{ color: themeColors.teal }}
                       >
                         Open in Google Maps
