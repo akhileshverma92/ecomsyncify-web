@@ -192,11 +192,8 @@ export default function PrivacyPolicy() {
                   <button
                     onClick={() => toggleAccordion(section.id)}
                     className="w-full text-left px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between transition-all duration-300 touch-manipulation"
-                    style={{ minHeight: '44px' }}
                     style={{
-                      backgroundColor: isExpanded 
-                        ? `linear-gradient(135deg, ${themeColors.limeGreen}15 0%, ${themeColors.teal}15 100%)`
-                        : themeColors.grayLight,
+                      minHeight: '44px',
                       background: isExpanded 
                         ? `linear-gradient(135deg, ${themeColors.limeGreen}15 0%, ${themeColors.teal}15 100%)`
                         : themeColors.grayLight,
