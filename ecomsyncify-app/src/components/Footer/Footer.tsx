@@ -18,8 +18,8 @@ function Footer() {
       component="footer"
       className="footer-glow"
       sx={{
-        background: `linear-gradient(135deg, ${themeColors.green} 0%, ${themeColors.lightGreen} 50%, ${themeColors.teal} 100%)`,
-        color: themeColors.white,
+        background: `linear-gradient(135deg, ${themeColors.footerDarkBlue} 0%, ${themeColors.primaryBlue} 50%, ${themeColors.primaryAccent} 100%)`,
+        color: themeColors.textOnDark,
         mt: 'auto',
         position: 'relative',
         overflow: 'hidden',
@@ -30,7 +30,7 @@ function Footer() {
           left: 0,
           width: '100%',
           height: '300px',
-          background: `linear-gradient(to top, rgba(34, 197, 94, 0.3) 0%, rgba(132, 204, 22, 0.35) 40%, rgba(20, 184, 166, 0.3) 70%, transparent 100%)`,
+          background: `linear-gradient(to top, ${themeColors.footerDarkBlue}40 0%, ${themeColors.primaryBlue}40 40%, ${themeColors.primaryAccent}40 70%, transparent 100%)`,
           animation: 'footerGlowRise 5s ease-in-out infinite',
           zIndex: 0,
           pointerEvents: 'none',
@@ -53,7 +53,17 @@ function Footer() {
         >
           {/* Contact Information Column */}
           <Box>
-            <Box sx={{ mb: { xs: 2, md: 3 } }}>
+            <Box 
+              sx={{ 
+                mb: { xs: 2, md: 3 },
+                display: 'inline-block',
+                padding: { xs: '8px 12px', sm: '10px 16px' },
+                borderRadius: '8px',
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+              }}
+            >
               <img 
                 src="/image-logo.png" 
                 alt="EcomSyncify Logo" 
@@ -61,6 +71,7 @@ function Footer() {
                   height: '40px',
                   width: 'auto',
                   maxWidth: '200px',
+                  filter: 'brightness(0) invert(1)',
                 }}
               />
             </Box>
