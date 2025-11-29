@@ -73,7 +73,7 @@ export default function Home() {
       >
         <div className="max-w-7xl mx-auto w-full py-8 sm:py-12 lg:py-16">
           <div 
-            className={`grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center transition-all duration-1000 ${
+            className={`flex flex-col items-center text-center transition-all duration-1000 ${
               isVisible['hero'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
             ref={(el) => {
@@ -83,8 +83,8 @@ export default function Home() {
               }
             }}
           >
-            {/* Left Side - Content */}
-            <div className="space-y-3 sm:space-y-4 md:space-y-5 order-2 md:order-1">
+            {/* Top - Text Content */}
+            <div className="space-y-3 sm:space-y-4 md:space-y-5 w-full max-w-4xl mb-6 sm:mb-8 md:mb-10">
               <h3
                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight"
                 style={{ color: themeColors.white }}
@@ -92,45 +92,47 @@ export default function Home() {
                 The Simplest Way to Automate Marketplace Integrations Across E-commerce Platforms
               </h3>
               <p 
-                className="text-sm sm:text-base md:text-lg leading-relaxed"
+                className="text-sm sm:text-base md:text-lg leading-relaxed px-4"
                 style={{ color: themeColors.white, opacity: 0.95 }}
               >
                 EcomSyncify Technologies is a leading Shopify integration and automation company helping U.S. businesses grow across global marketplaces with seamless Shopify–Etsy integration, smart data sync, and multi-channel selling solutions.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
-                <button 
+            </div>
+
+            {/* Center - Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 md:mb-10">
+              <button 
                 onClick={() => {
                   navigate('/product');
                 }}
-                  className="px-6 py-3 sm:px-8 sm:py-3.5 rounded-lg text-sm sm:text-base font-semibold flex items-center justify-center gap-2 transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95"
-                  style={{ 
-                    backgroundColor: themeColors.white,
-                    color: themeColors.black,
-                    minHeight: '44px',
-                  }}
-                >
-                  Let's Talk Integration <ArrowRight size={18} className="sm:w-5 sm:h-5" />
-                </button>
-                <button 
-                  onClick={() => {
-                    navigate('/about-us');
-                  }}
-                  className="px-6 py-3 sm:px-8 sm:py-3.5 rounded-lg text-sm sm:text-base cursor-pointer font-semibold transition-all duration-300 border-2 active:scale-95"
-                  style={{
-                    backgroundColor: 'transparent',
-                    color: themeColors.white,
-                    borderColor: themeColors.white,
-                    minHeight: '44px',
-                  }}
-                >
-                  About Us
-                </button>
-              </div>
+                className="px-6 py-3 sm:px-8 sm:py-3.5 rounded-lg text-sm sm:text-base font-semibold flex items-center justify-center gap-2 transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95"
+                style={{ 
+                  backgroundColor: themeColors.white,
+                  color: themeColors.black,
+                  minHeight: '44px',
+                }}
+              >
+                Let's Talk Integration <ArrowRight size={18} className="sm:w-5 sm:h-5" />
+              </button>
+              <button 
+                onClick={() => {
+                  navigate('/about-us');
+                }}
+                className="px-6 py-3 sm:px-8 sm:py-3.5 rounded-lg text-sm sm:text-base cursor-pointer font-semibold transition-all duration-300 border-2 active:scale-95"
+                style={{
+                  backgroundColor: 'transparent',
+                  color: themeColors.white,
+                  borderColor: themeColors.white,
+                  minHeight: '44px',
+                }}
+              >
+                About Us
+              </button>
             </div>
 
-            {/* Right Side - Image Only */}
+            {/* Bottom - Image */}
             <div 
-              className={`transition-all duration-1000 delay-300 order-1 md:order-2 ${
+              className={`transition-all duration-1000 delay-300 w-full max-w-3xl ${
                 isVisible['image1'] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
               }`}
               ref={(el) => {
