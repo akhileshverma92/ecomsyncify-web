@@ -1,5 +1,0 @@
-/* Slightly reduce base font size across the whole site */
-html {
-  font-size: 15px; /* Tailwind default is 16px */
-}
-
