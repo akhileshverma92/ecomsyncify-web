@@ -687,18 +687,61 @@ export default function Home() {
         }
 
         .service-card {
+          position: relative;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           will-change: transform, box-shadow, border-color;
+          overflow: visible;
+        }
+
+        .service-card::before,
+        .service-card::after {
+          content: '';
+          position: absolute;
+          pointer-events: none;
+          z-index: 1;
+          border: 2px solid ${themeColors.blue};
+          transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-card::before {
+          top: -2px;
+          right: -2px;
+          width: 0;
+          height: 0;
+          border-top: 2px solid ${themeColors.blue};
+          border-right: 2px solid ${themeColors.blue};
+          border-bottom: none;
+          border-left: none;
+        }
+
+        .service-card::after {
+          bottom: -2px;
+          left: -2px;
+          width: 0;
+          height: 0;
+          border-bottom: 2px solid ${themeColors.blue};
+          border-left: 2px solid ${themeColors.blue};
+          border-top: none;
+          border-right: none;
+        }
+
+        .service-card:hover::before {
+          width: calc(100% + 2px);
+          height: calc(50% + 2px);
+        }
+
+        .service-card:hover::after {
+          width: calc(100% + 2px);
+          height: calc(50% + 2px);
         }
 
         .service-card:hover {
           transform: translateY(-8px) scale(1.02);
-          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15), 0 0 0 2px rgba(34, 197, 94, 0.3);
-          border-color: #22c55e;
+          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
         }
 
           .service-card:hover h3 {
-            background: linear-gradient(135deg, #22c55e 0%, #84cc16 50%, #14b8a6 100%);
+            background: linear-gradient(135deg, ${themeColors.blue} 0%, ${themeColors.lightBlue} 50%, ${themeColors.teal} 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
