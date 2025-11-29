@@ -699,7 +699,6 @@ export default function Home() {
           position: absolute;
           pointer-events: none;
           z-index: 1;
-          border: 2px solid ${themeColors.blue};
           transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -727,12 +726,12 @@ export default function Home() {
 
         .service-card:hover::before {
           width: calc(100% + 2px);
-          height: calc(50% + 2px);
+          height: calc(100% + 2px);
         }
 
         .service-card:hover::after {
           width: calc(100% + 2px);
-          height: calc(50% + 2px);
+          height: calc(100% + 2px);
         }
 
         .service-card:hover {
