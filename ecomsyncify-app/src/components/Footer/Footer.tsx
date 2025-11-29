@@ -3,13 +3,19 @@ import { Box, Container, Typography, Link as MuiLink, Divider } from '@mui/mater
 import { Facebook, Instagram, LinkedIn } from '@mui/icons-material'
 
 function Footer() {
-  // Black and white theme
+  // Green gradient theme (matching logo)
   const themeColors = {
+    // Primary greens
+    green: '#22c55e', // primary brand green (emerald)
+    lightGreen: '#84cc16', // lighter accent green (lime)
+    teal: '#14b8a6', // teal green
+    // Legacy keys mapped to greens (for gradients)
+    limeGreen: '#84cc16',
+    // Neutrals
     black: '#000000',
     white: '#ffffff',
     gray: '#9ca3af',
     grayLight: '#f3f4f6',
-    skyBlueDark: '#1b5782', // slightly dark sky blue for footer background
   }
 
   const currentYear = new Date().getFullYear()
@@ -25,8 +31,8 @@ function Footer() {
       component="footer"
       className="footer-glow"
       sx={{
-        bgcolor: themeColors.skyBlueDark,
-        color: 'black',
+        background: `linear-gradient(135deg, ${themeColors.green} 0%, ${themeColors.lightGreen} 50%, ${themeColors.teal} 100%)`,
+        color: themeColors.white,
         mt: 'auto',
         position: 'relative',
         overflow: 'hidden',
@@ -37,7 +43,7 @@ function Footer() {
           left: 0,
           width: '100%',
           height: '300px',
-          background: 'linear-gradient(to top, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.1) 40%, transparent 80%)',
+          background: `linear-gradient(to top, rgba(34, 197, 94, 0.3) 0%, rgba(132, 204, 22, 0.35) 40%, rgba(20, 184, 166, 0.3) 70%, transparent 100%)`,
           animation: 'footerGlowRise 5s ease-in-out infinite',
           zIndex: 0,
           pointerEvents: 'none',
@@ -75,7 +81,7 @@ function Footer() {
               <Typography
                 variant="body2"
                 sx={{
-                  color: themeColors.black,
+                  color: themeColors.white,
                   fontSize: { xs: '0.75rem', sm: '0.875rem' },
                   lineHeight: 1.6,
                   wordBreak: 'break-word',
@@ -85,10 +91,11 @@ function Footer() {
                 <MuiLink
                   href="mailto:support@ecomsyncify.com"
                   sx={{
-                    color: themeColors.black,
+                    color: themeColors.white,
                     textDecoration: 'none',
                     '&:hover': {
                       textDecoration: 'underline',
+                      opacity: 0.8,
                     },
                   }}
                 >
@@ -98,7 +105,7 @@ function Footer() {
               <Typography
                 variant="body2"
                 sx={{
-                  color: themeColors.black,
+                  color: themeColors.white,
                   fontSize: { xs: '0.75rem', sm: '0.875rem' },
                   lineHeight: 1.6,
                   wordBreak: 'break-word',
@@ -108,10 +115,11 @@ function Footer() {
                 <MuiLink
                   href="tel:+917275646711"
                   sx={{
-                    color: themeColors.black,
+                    color: themeColors.white,
                     textDecoration: 'none',
                     '&:hover': {
                       textDecoration: 'underline',
+                      opacity: 0.8,
                     },
                   }}
                 >
@@ -121,7 +129,7 @@ function Footer() {
               <Typography
                 variant="body2"
                 sx={{
-                  color: themeColors.black,
+                  color: themeColors.white,
                   fontSize: { xs: '0.75rem', sm: '0.875rem' },
                   lineHeight: 1.6,
                   wordBreak: 'break-word',
@@ -144,7 +152,7 @@ function Footer() {
                 fontSize: { xs: '0.875rem', md: '1rem' },
                 letterSpacing: '0.1em',
                 textTransform: 'uppercase',
-                color: themeColors.black,
+                color: themeColors.white,
               }}
             >
               FOLLOW
@@ -162,7 +170,7 @@ function Footer() {
                     <MuiLink
                       href={social.url}
                       sx={{
-                        color: themeColors.black,
+                        color: themeColors.white,
                         textDecoration: 'none',
                         fontSize: { xs: '0.75rem', sm: '0.875rem' },
                         fontWeight: 400,
@@ -171,7 +179,8 @@ function Footer() {
                         transition: 'all 0.3s ease',
                         display: 'inline-block',
                         '&:hover': {
-                          color: themeColors.gray,
+                          color: themeColors.white,
+                          opacity: 0.8,
                           transform: 'translateX(4px)',
                         },
                       }}
@@ -187,7 +196,7 @@ function Footer() {
                     <MuiLink
                       href={social.url}
                       sx={{
-                        color: themeColors.black,
+                        color: themeColors.white,
                         textDecoration: 'none',
                         fontSize: { xs: '0.75rem', sm: '0.875rem' },
                         fontWeight: 400,
@@ -196,7 +205,8 @@ function Footer() {
                         transition: 'all 0.3s ease',
                         display: 'inline-block',
                         '&:hover': {
-                          color: themeColors.gray,
+                          color: themeColors.white,
+                          opacity: 0.8,
                           transform: 'translateX(4px)',
                         },
                       }}
@@ -219,7 +229,7 @@ function Footer() {
                 fontSize: { xs: '0.875rem', md: '1rem' },
                 letterSpacing: '0.1em',
                 textTransform: 'uppercase',
-                color: themeColors.black,
+                color: themeColors.white,
               }}
             >
               COMPANY
@@ -230,7 +240,7 @@ function Footer() {
                   component={Link}
                   to="/about-us"
                   sx={{
-                    color: themeColors.black,
+                    color: themeColors.white,
                     textDecoration: 'none',
                     fontSize: '0.875rem',
                     fontWeight: 400,
@@ -239,7 +249,8 @@ function Footer() {
                     transition: 'all 0.2s ease',
                     display: 'inline-block',
                     '&:hover': {
-                      color: themeColors.gray,
+                      color: themeColors.white,
+                      opacity: 0.8,
                       transform: 'translateX(2px)',
                     },
                   }}
@@ -252,7 +263,7 @@ function Footer() {
                   component={Link}
                   to="/contact"
                   sx={{
-                    color: themeColors.black,
+                    color: themeColors.white,
                     textDecoration: 'none',
                     fontSize: '0.875rem',
                     fontWeight: 400,
@@ -261,7 +272,8 @@ function Footer() {
                     transition: 'all 0.2s ease',
                     display: 'inline-block',
                     '&:hover': {
-                      color: themeColors.gray,
+                      color: themeColors.white,
+                      opacity: 0.8,
                       transform: 'translateX(2px)',
                     },
                   }}
@@ -278,9 +290,9 @@ function Footer() {
         <Divider
           sx={{
             mb: { xs: 3, md: 4 },
-            borderColor: themeColors.black,
+            borderColor: themeColors.white,
             height: 1,
-            opacity: 0.2,
+            opacity: 0.3,
           }}
         />
         <Box
@@ -297,7 +309,7 @@ function Footer() {
           <Typography
             variant="body2"
             sx={{
-              color: themeColors.black,
+              color: themeColors.white,
               fontSize: { xs: '0.75rem', sm: '0.875rem' },
               fontFamily: 'monospace',
               lineHeight: 1.5,
