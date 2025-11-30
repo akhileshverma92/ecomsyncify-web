@@ -568,19 +568,13 @@ export default function AboutUs() {
               ].map((section) => (
                 <div
                   key={section.id}
-                  className={`experience-card rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 transition-all duration-1000 hover:shadow-xl hover:-translate-y-1 border-2 touch-manipulation ${
+                  className={`core-values-card rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 transition-all duration-1000 hover:shadow-xl hover:-translate-y-1 border-2 touch-manipulation ${
                     isVisible[section.id] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                   }`}
                   style={{
-                    backgroundColor: themeColors.grayLight,
+                    backgroundColor: themeColors.white,
                     borderColor: themeColors.grayLight,
                     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = themeColors.teal;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = themeColors.grayLight;
                   }}
                   ref={(el) => {
                     if (el) {
@@ -690,6 +684,67 @@ export default function AboutUs() {
         .what-we-do-card:hover::after {
           width: calc(100% + 2px);
           height: calc(100% + 2px);
+        }
+
+        /* Core Values Cards Border Animation */
+        .core-values-card {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .core-values-card::before,
+        .core-values-card::after {
+          content: '';
+          position: absolute;
+          pointer-events: none;
+          z-index: 1;
+          transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+          opacity: 0;
+          border-radius: inherit;
+        }
+
+        .core-values-card::before {
+          top: 0;
+          right: 0;
+          width: 0;
+          height: 0;
+          border-top: 2px solid ${themeColors.blue};
+          border-right: 2px solid ${themeColors.blue};
+          border-bottom: none;
+          border-left: none;
+          border-top-right-radius: inherit;
+          border-top-left-radius: 0;
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+
+        .core-values-card::after {
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 0;
+          border-bottom: 2px solid ${themeColors.blue};
+          border-left: 2px solid ${themeColors.blue};
+          border-top: none;
+          border-right: none;
+          border-bottom-left-radius: inherit;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+
+        .core-values-card:hover::before {
+          width: 100%;
+          height: 50%;
+          opacity: 1;
+          border-top-left-radius: inherit;
+        }
+
+        .core-values-card:hover::after {
+          width: 100%;
+          height: 50%;
+          opacity: 1;
+          border-bottom-right-radius: inherit;
         }
 
         .modern-image-card {
