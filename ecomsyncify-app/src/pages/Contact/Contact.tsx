@@ -269,7 +269,7 @@ export default function Contact() {
                           className="text-sm sm:text-base md:text-lg font-semibold mb-1"
                           style={{ color: themeColors.black }}
                         >
-                          EcomSyncify Technologies
+                          EcomSyncify Technologies LLP.
                         </p>
                         <p
                           className="text-xs sm:text-sm md:text-base leading-relaxed break-words"
@@ -461,3 +461,4 @@ export default function Contact() {
     </div>
   );
 }
+
