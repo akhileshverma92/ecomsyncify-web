@@ -222,6 +222,29 @@ function Footer() {
                   CONTACT
                 </MuiLink>
               </Box>
+              <Box component="li" sx={{ mb: 1.5 }}>
+                <MuiLink
+                  component={Link}
+                  to="/privacy-policy"
+                  sx={{
+                    color: themeColors.white,
+                    textDecoration: 'none',
+                    fontSize: '0.875rem',
+                    fontWeight: 400,
+                    letterSpacing: '0.05em',
+                    textTransform: 'uppercase',
+                    transition: 'all 0.2s ease',
+                    display: 'inline-block',
+                    '&:hover': {
+                      color: themeColors.white,
+                      opacity: 0.8,
+                      transform: 'translateX(2px)',
+                    },
+                  }}
+                >
+                  PRIVACY POLICY
+                </MuiLink>
+              </Box>
             </Box>
           </Box>
         </Box>
@@ -338,6 +361,29 @@ function Footer() {
                   }}
                 >
                   CONTACT
+                </MuiLink>
+              </Box>
+              <Box component="li" sx={{ mb: 1.5 }}>
+                <MuiLink
+                  component={Link}
+                  to="/privacy-policy"
+                  sx={{
+                    color: themeColors.white,
+                    textDecoration: 'none',
+                    fontSize: '0.75rem',
+                    fontWeight: 400,
+                    letterSpacing: '0.05em',
+                    textTransform: 'uppercase',
+                    transition: 'all 0.2s ease',
+                    display: 'inline-block',
+                    '&:hover': {
+                      color: themeColors.white,
+                      opacity: 0.8,
+                      transform: 'translateX(2px)',
+                    },
+                  }}
+                >
+                  PRIVACY POLICY
                 </MuiLink>
               </Box>
             </Box>
