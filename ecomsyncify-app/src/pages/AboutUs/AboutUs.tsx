@@ -363,7 +363,7 @@ export default function AboutUs() {
               {whatWeDo.map((item, index) => (
                 <div
                   key={index}
-                  className="what-we-do-card p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl border-2 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 relative overflow-visible touch-manipulation"
+                  className="what-we-do-card p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl border-2 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 relative touch-manipulation"
                   style={{
                     backgroundColor: themeColors.white,
                     borderColor: themeColors.grayLight,
@@ -473,14 +473,6 @@ export default function AboutUs() {
                     animation: isVisible['why-choose'] 
                       ? `fadeInUp 0.6s ease-out ${reason.delay}ms both` 
                       : 'none',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = themeColors.teal;
-                    e.currentTarget.style.boxShadow = `0 20px 40px rgba(20, 184, 166, 0.15)`;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = themeColors.grayLight;
-                    e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.05)';
                   }}
                   ref={(el) => {
                     if (el && index === 0) {
@@ -636,8 +628,10 @@ export default function AboutUs() {
           }
         }
 
+        /* What We Do Cards Border Animation */
         .what-we-do-card {
           position: relative;
+          overflow: hidden;
         }
 
         .what-we-do-card::before,
@@ -646,44 +640,53 @@ export default function AboutUs() {
           position: absolute;
           pointer-events: none;
           z-index: 1;
-          border: 2px solid ${themeColors.teal};
           transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+          opacity: 0;
+          border-radius: inherit;
         }
 
         .what-we-do-card::before {
-          top: -2px;
-          right: -2px;
+          top: 0;
+          right: 0;
           width: 0;
           height: 0;
-          border-top: 2px solid ${themeColors.teal};
-          border-right: 2px solid ${themeColors.teal};
+          border-top: 2px solid ${themeColors.blue};
+          border-right: 2px solid ${themeColors.blue};
           border-bottom: none;
           border-left: none;
+          border-top-right-radius: inherit;
+          border-top-left-radius: 0;
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
         }
 
         .what-we-do-card::after {
-          bottom: -2px;
-          left: -2px;
+          bottom: 0;
+          left: 0;
           width: 0;
           height: 0;
-          border-bottom: 2px solid ${themeColors.teal};
-          border-left: 2px solid ${themeColors.teal};
+          border-bottom: 2px solid ${themeColors.blue};
+          border-left: 2px solid ${themeColors.blue};
           border-top: none;
           border-right: none;
-        }
-
-        .what-we-do-card {
-          overflow: visible;
+          border-bottom-left-radius: inherit;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
         }
 
         .what-we-do-card:hover::before {
-          width: calc(100% + 2px);
-          height: calc(100% + 2px);
+          width: 100%;
+          height: 100%;
+          opacity: 1;
+          border-top-left-radius: inherit;
         }
 
         .what-we-do-card:hover::after {
-          width: calc(100% + 2px);
-          height: calc(100% + 2px);
+          width: 100%;
+          height: 100%;
+          opacity: 1;
+          border-bottom-right-radius: inherit;
         }
 
         /* Core Values Cards Border Animation */
@@ -735,14 +738,75 @@ export default function AboutUs() {
 
         .core-values-card:hover::before {
           width: 100%;
-          height: 50%;
+          height: 100%;
           opacity: 1;
           border-top-left-radius: inherit;
         }
 
         .core-values-card:hover::after {
           width: 100%;
-          height: 50%;
+          height: 100%;
+          opacity: 1;
+          border-bottom-right-radius: inherit;
+        }
+
+        /* Why Choose About Cards Border Animation */
+        .why-choose-about-card {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .why-choose-about-card::before,
+        .why-choose-about-card::after {
+          content: '';
+          position: absolute;
+          pointer-events: none;
+          z-index: 1;
+          transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+          opacity: 0;
+          border-radius: inherit;
+        }
+
+        .why-choose-about-card::before {
+          top: 0;
+          right: 0;
+          width: 0;
+          height: 0;
+          border-top: 2px solid ${themeColors.blue};
+          border-right: 2px solid ${themeColors.blue};
+          border-bottom: none;
+          border-left: none;
+          border-top-right-radius: inherit;
+          border-top-left-radius: 0;
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+
+        .why-choose-about-card::after {
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 0;
+          border-bottom: 2px solid ${themeColors.blue};
+          border-left: 2px solid ${themeColors.blue};
+          border-top: none;
+          border-right: none;
+          border-bottom-left-radius: inherit;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+
+        .why-choose-about-card:hover::before {
+          width: 100%;
+          height: 100%;
+          opacity: 1;
+          border-top-left-radius: inherit;
+        }
+
+        .why-choose-about-card:hover::after {
+          width: 100%;
+          height: 100%;
           opacity: 1;
           border-bottom-right-radius: inherit;
         }
