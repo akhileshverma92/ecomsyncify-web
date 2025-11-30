@@ -331,13 +331,13 @@ export default function Contact() {
                           className="text-sm sm:text-base md:text-lg font-semibold mb-1"
                           style={{ color: themeColors.black }}
                         >
-                          +91 98243 02520
+                          +91 7275646711
                         </p>
                         <p
                           className="text-xs sm:text-sm md:text-base leading-relaxed"
                           style={{ color: themeColors.gray }}
                         >
-                          Monday - Saturday, 10:00 AM - 07:00 PM (IST)
+                          24/7 Support Available
                         </p>
                       </div>
                     </div>
