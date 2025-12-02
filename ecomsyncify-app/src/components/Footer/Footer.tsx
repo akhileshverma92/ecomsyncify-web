@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Box, Container, Typography, Link as MuiLink, Divider } from '@mui/material'
+import { Box, Container, Typography, Link as MuiLink } from '@mui/material'
 import { Facebook, Instagram, LinkedIn } from '@mui/icons-material'
 import { themeColors } from '../../theme/themeColors'
 import { HeadphonesIcon, Mail, MapPin } from 'lucide-react'
@@ -597,3 +597,4 @@ function Footer() {
 }
 
 export default Footer
+
